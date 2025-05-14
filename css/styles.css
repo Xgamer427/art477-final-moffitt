@@ -1,0 +1,225 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Source Sans 3";
+    overflow: visible;
+}
+
+h1 {
+    text-align: left;
+    margin-left: 100px;
+    font-size: xx-large;
+}
+
+.intro {
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    font-size: 1.4em;
+    display: inline-block;
+}
+
+body{
+    background: linear-gradient(
+        #FFFFFF 0%,
+        #be976f 50%,
+        #85b770 100%
+    );
+}
+
+.mapwrapper {
+    position: relative;
+    display: inline-block;
+    width: 400px;
+}
+.mapwrapper img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+.mapwrapper .svg1overlay {
+  position: absolute;
+  top: 3%;
+  left: -2%;
+  width: 95%;
+  height: 95%;
+  
+}
+
+
+.container {
+    display: flex;
+    align-items: center;   /* Vertically center */
+    justify-content: flex-start; /* Align to left */
+    height: 60vh;     
+    bottom: 10%;
+    overflow: hidden;    /* Full viewport height */
+    padding-left: 40px;    /* Optional: spacing from the left */
+     /* Optional: background for contrast */
+  }
+
+  .motoIMG {
+  
+    position: relative;
+    top: 1000px;
+  }
+
+  .videowindow {
+    position: absolute; left: 50%; top: 60%; transform: translate(-50%, -100%);
+    height: 512px;
+    width: 288px;
+  }
+  .imgwindow {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, 50%);
+  }
+  .container img {
+    width: 600px;          /* Adjust this to scale the image */
+    height: auto;          /* Maintain aspect ratio */
+    left: 15px;
+    bottom: 508px;
+    z-index: -1;
+  }
+
+.top‑center {
+    position: absolute;   
+    top: 0%;               
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+
+.source-sans-3{
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+/* Button grouping */
+
+    .next-button{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        /* transform: translate(-50%, -50%); */
+      }
+      
+      .button {
+        display: block;
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        font-family: sans-serif;
+        text-decoration: none;
+        color: #333;
+        border: 2px solid #333;
+        letter-spacing: 2px;
+        text-align: center;
+        position: relative;
+        transition: all .35s;
+      }
+      
+      a span{
+        position: relative;
+        z-index: 2;
+      }
+      
+      a::after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #ff003b;
+        transition: all .35s;
+      }
+      
+      a:hover{
+        color: #fff;
+      }
+      
+      a:hover:after{
+        width: 100%;
+      }
+
+      .svgoverlay {
+        position: absolute;
+        top: 0px;
+        z-index: 100;
+        width: 92%;
+        height: auto;
+      }
+
+
+      .hotspot {
+        position: absolute;
+        background: #FF0000;
+        opacity: 25%;
+        cursor: pointer;
+      }
+      .container {
+        position: relative;
+        display: inline-block;
+        width: 80%;      
+        max-width: 600px;
+        max-height: 1000px;
+      }
+   
+      /* these % values scale with the image */
+      .hotspot.helmet {  top:  2%; left: 43%; width: 17%; height: 16%; }
+      .hotspot.jacket {  top: 18%; left: 42%; width: 25%; height: 12%; } 
+      .hotspot.pants   { top: 44%; left: 49%; width: 22%; height: 24%; }
+      .hotspot.boots   { top: 69%; left: 59%; width: 8%; height: 14%; }
+      .hotspot.gloves  { top: 31%; left: 43%; width: 16%; height: 8%; }
+      .hotspot.bike    { top: 40%; left: 11%;  width: 37%; height: 45%; }
+      
+      /* pulse animation */
+      @keyframes pulse {
+        0%   { transform: scale(1); }
+        50%  { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      .pulse {
+        animation: pulse 1.2s infinite;
+      }
+      
+      #infoBox {
+        position: absolute; /* ← new */
+        bottom: 200px;          /* ← new */
+        right: 250px;   
+        width: 750px;
+        max-height: 500px;
+        border: 2px solid #000000;
+        padding: 12px;
+        box-sizing: border-box;
+        font-size: 1.75em;
+        line-height: 1.4;
+        color: #FFFFFF;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+      #infoBox.visible {
+        opacity: 1;
+      }
+
+
+
+
+      /* Draw all paths by animating their stroke dash offset */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+svg.svg1overlay path {
+  fill: none;               /* no fill, only outline */
+  stroke: #FF0000;        /* red stroke */
+  stroke-width: 2;          /* adjust as needed */
+  stroke-dasharray: 1000;   /* large enough to cover any path */
+  stroke-dashoffset: 1000;  
+  animation: draw 15s linear forwards;
+}
