@@ -156,7 +156,7 @@ body{
 
       .hotspot {
         position: absolute;
-        background: #FF0000;
+        background: transparent;
         opacity: 25%;
         cursor: pointer;
       }
